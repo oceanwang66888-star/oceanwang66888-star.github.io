@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyQuest 天问智能 — 让AI成为您的新获客渠道 | GEO解决方案</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet="">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0d0d0d;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --accent-blue: #2997ff;
+            --accent-purple: #a855f7;
+            --accent-cyan: #22d3ee;
+            --accent-green: #30d158;
+            --accent-gold: #AD9872;
+            --accent-gradient: linear-gradient(135deg, #2997ff 0%, #a855f7 50%, #22d3ee 100%);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --shadow-glow: 0 0 60px rgba(41, 151, 255, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 16px 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo {
+            font-size: 17px; font-weight: 700; letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-tagline {
+            font-size: 13px; color: var(--text-tertiary);
+            margin-left: 12px; padding-left: 12px;
+            border-left: 1px solid var(--border-subtle);
+        }
+        .nav-links { display: flex; gap: 4px; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 13px; font-weight: 500;
+            padding: 6px 12px; border-radius: 8px;
+            transition: all 0.2s; letter-spacing: -0.2px;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* ── Hero ── */
+        .hero-section {
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(41, 151, 255, 0.18), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168, 85, 247, 0.1), transparent),
+                radial-gradient(ellipse 50% 30% at 20% 80%, rgba(34, 211, 238, 0.08), transparent);
+            animation: bgPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes bgPulse {
+            0% { opacity:1; }
+            100% { opacity:0.7; }
+        }
+
+        /* ── 科技感网格背景 (全页) ── */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background-image:
+                linear-gradient(rgba(74,144,226,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74,144,226,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px; border-radius: 20px;
+            background: rgba(41,151,255,0.1);
+            border: 1px solid rgba(41,151,255,0.2);
+            font-size: 13px; color: var(--accent-blue);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        .hero-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .cta-group {
+            display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+        }
+        .cta-primary {
+            padding: 16px 36px; border-radius: 980px;
+            background: var(--accent-blue);
+            color: #000; font-size: 15px; font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .cta-primary:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(41,151,255,0.3); }
+        .cta-secondary {
+            padding: 16px 36px; border-radius: 980px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-hover);
+            color: var(--text-primary); font-size: 15px; font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        /* ── Sections ── */
+        section { padding: 100px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-label {
+            font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent-blue); font-weight: 700; margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800; letter-spacing: -1.5px;
+            line-height: 1.15; margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 17px; color: var(--text-secondary);
+            max-width: 640px; margin: 0 auto; line-height: 1.6;
+        }
+
+        /* ── Cards & Grids ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px; padding: 32px;
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+        .features-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+        .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative; }
+
+        /* ── Reveal Animation ── */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Highlight / Quote ── */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(41,151,255,0.08), rgba(168,85,247,0.08));
+            border: 1px solid rgba(41,151,255,0.15);
+            border-radius: 16px; padding: 24px 32px;
+        }
+        .highlight-box p { font-size: 17px; font-weight: 500; line-height: 1.6; }
+        .highlight-box .sub { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 400; }
+        .quote-block {
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid var(--accent-blue);
+            padding: 20px 24px; border-radius: 0 12px 12px 0;
+            font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+        }
+
+        /* ── Tables ── */
+        .comparison-table {
+            width: 100%; border-collapse: collapse;
+            background: var(--bg-card); border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+        .comparison-table th {
+            padding: 16px 20px; text-align: left;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+            text-transform: uppercase; border-bottom: 1px solid var(--border-subtle);
+            background: rgba(255,255,255,0.02);
+        }
+        .comparison-table td {
+            padding: 14px 20px; font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            vertical-align: top;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .highlight-blue { color: var(--accent-blue); font-weight: 600; }
+
+        /* ── Risk Cards ── */
+        .risk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+        .risk-card {
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            border-radius: 16px; padding: 28px; position: relative; overflow: hidden;
+        }
+        .risk-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        .risk-num {
+            font-size: 48px; font-weight: 900; color: rgba(41,151,255,0.1);
+            position: absolute; top: 12px; right: 16px; line-height: 1;
+        }
+        .risk-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; position: relative; }
+        .risk-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+        /* ── Process Steps ── */
+        .process-step {
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            border-radius: 16px; padding: 28px; text-align: center;
+            position: relative; transition: all 0.4s;
+        }
+        .process-step:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+        .step-num {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--accent-gradient);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 15px; font-weight: 800; color: #000;
+            margin-bottom: 16px;
+        }
+        .step-arrow {
+            position: absolute; top: 50%; right: -12px;
+            transform: translateY(-50%);
+            font-size: 20px; color: var(--text-tertiary);
+            z-index: 2;
+        }
+        .process-step h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .process-step p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ── Platform Cards ── */
+        .platform-grid { display: grid; gap: 12px; }
+        .platform-card {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px; border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s;
+        }
+        .platform-card:hover { background: rgba(255,255,255,0.05); border-color: var(--border-hover); }
+        .platform-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); overflow: hidden; }
+        .platform-icon img { width: 28px; height: 28px; object-fit: contain; }
+        .platform-card h4 { font-size: 14px; font-weight: 600; }
+        .platform-card p { font-size: 11px; color: var(--text-tertiary); }
+
+        /* ── Region Blocks ── */
+        .region-block {
+            display: flex; flex-direction: column; gap: 2px;
+            padding: 14px 18px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(41,151,255,0.04), rgba(168,85,247,0.04));
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s; text-align: left;
+        }
+        .region-block:hover { background: rgba(255,255,255,0.05); border-color: var(--border-hover); }
+        .region-name { font-size: 14px; font-weight: 700; color: var(--accent-blue); }
+        .region-countries { font-size: 12px; color: var(--text-tertiary); }
+
+        /* ── Timeline ── */
+        .timeline-vertical { max-width: 700px; margin: 0 auto; position: relative; }
+        .timeline-vertical::before {
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+            width: 2px; background: var(--border-subtle); transform: translateX(-50%);
+        }
+        .timeline-item-vertical {
+            display: flex; flex-direction: column; align-items: center;
+            margin-bottom: 40px; position: relative;
+        }
+        .timeline-month {
+            font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--accent-blue); margin-bottom: 8px;
+        }
+        .timeline-dot {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: var(--accent-blue); border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 12px rgba(41,151,255,0.4);
+            margin-bottom: 12px;
+        }
+        .timeline-card-vertical {
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            border-radius: 16px; padding: 24px; width: 100%; max-width: 600px;
+        }
+        .timeline-card-vertical h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .timeline-card-vertical p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+        /* ── Tag ── */
+        .tag-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .tag {
+            padding: 6px 14px; border-radius: 20px;
+            background: rgba(41,151,255,0.08);
+            border: 1px solid rgba(41,151,255,0.15);
+            font-size: 13px; color: var(--accent-blue); font-weight: 500;
+        }
+
+        /* ── CTA Section ── */
+        .cta-section {
+            padding: 100px 40px; text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary), rgba(41,151,255,0.05));
+        }
+        .cta-banner {
+            max-width: 800px; margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(41,151,255,0.08), rgba(168,85,247,0.08));
+            border: 1px solid rgba(41,151,255,0.2);
+            border-radius: 24px; position: relative; overflow: hidden;
+        }
+        .cta-banner::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: var(--accent-gradient);
+        }
+        .cta-banner h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+        .cta-banner p { font-size: 17px; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.6; }
+
+        /* ── Footer ── */
+        footer {
+            padding: 40px; text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 13px; color: var(--text-tertiary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .features-grid, .why-grid, .case-grid, .two-col { grid-template-columns: 1fr; }
+            .stats-grid, .tier-grid, .risk-grid, .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .step-arrow { display: none; }
+            div[style*="grid-template-columns:repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .container { padding: 0 20px; }
+            section { padding: 80px 0; }
+            .stats-grid, .tier-grid, .risk-grid, .kpi-grid, .platform-grid { grid-template-columns: 1fr; }
+            div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+            .process-steps { grid-template-columns: 1fr; }
+            .hero-section { padding: 100px 20px 60px; }
+            .cta-section { padding: 80px 20px; }
+            .cta-banner { padding: 36px 24px; }
+            .region-block { padding: 12px 16px; }
+            .region-name { font-size: 14px; }
+            .region-countries { font-size: 12px; }
+            body::before { background-size: 40px 40px; }
+        }
+
+        /* ── Break-word ── */
+        p, h1, h2, h3, h4, li, td, th, .card p, .feature-card p {
+            overflow-wrap: break-word;
+            word-break: normal;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div style="display:flex;align-items:center;">
+        <span class="nav-logo">SkyQuest 天问智能</span>
+        <span class="nav-tagline">GEO 生成式引擎优化</span>
+    </div>
+    <div class="nav-links">
+        <a href="#ch02">AI改变入口</a>
+        <a href="#ch03">为什么布局GEO</a>
+        <a href="#ch04">三大风险</a>
+        <a href="#ch05">什么是GEO</a>
+        <a href="#ch06">商业价值</a>
+        <a href="#ch07">为什么选择我们</a>
+        <a href="#ch09">服务方案</a>
+        <a href="#ch11">案例</a>
+        <a href="#cta">免费扫描</a>
+    </div>
+</nav>
+
+<!-- ══════════════════ P1: Cover ══════════════════ -->
+<section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-badge">生成式引擎优化 GEO · 全球 AI 平台覆盖</div>
+    <h1 class="hero-title">
+        <span class="gradient-text">让 AI 成为</span><br>
+        您的新获客渠道
+    </h1>
+    <p class="hero-sub">SkyQuest 帮助您的品牌出现在全球主流 AI 的推荐答案里——从 ChatGPT、Gemini 到豆包、千问，让 AI 主动为您带来客户。</p>
+    <div class="cta-group">
+        <a href="#cta" class="cta-primary">免费 AI 可见性扫描 →</a>
+        <a href="#ch02" class="cta-secondary">了解 GEO 解决方案</a>
+    </div>
+</section>
+
+<!-- ══════════════════ P2: AI正在改变流量入口 ══════════════════ -->
+<section id="ch02">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 01</div>
+            <h2 class="section-title">AI 正在改变流量入口</h2>
+            <p class="section-desc">客户的搜索行为正在发生根本性改变——从"搜索→点击"转向"直接问AI→获得推荐"</p>
+        </div>
+
+        <div class="stats-grid reveal">
+            <div class="card" style="text-align:center;">
+                <div style="font-size:48px;font-weight:900;color:var(--accent-blue);margin-bottom:8px;">74%</div>
+                <div style="font-size:15px;color:var(--text-secondary);line-height:1.5;">的美国 Z 世代<br>更愿意向 AI 提问<br>而非使用传统搜索</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-size:48px;font-weight:900;color:var(--accent-purple);margin-bottom:8px;">60%</div>
+                <div style="font-size:15px;color:var(--text-secondary);line-height:1.5;">的搜索请求<br>将在 2026 年<br>被 AI 对话取代</div>
+            </div>
+            <div class="card" style="text-align:center;">
+                <div style="font-size:48px;font-weight:900;color:var(--accent-cyan);margin-bottom:8px;">3.5亿</div>
+                <div style="font-size:15px;color:var(--text-secondary);line-height:1.5;">ChatGPT 周活跃用户<br>相当于德国总人口<br>的 4 倍以上</div>
+            </div>
+        </div>
+
+        <div class="highlight-box reveal" style="margin-top:40px;">
+            <p> 这意味着每天有数以万计的潜在客户，在 AI 的引导下选择了您的竞争对手。</p>
+            <p class="sub">您还在依赖传统搜索排名吗？您的竞争对手已经开始被 AI 推荐了。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P3: 企业为什么必须布局GEO ══════════════════ -->
+<section id="ch03" style="background:var(--bg-secondary);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 02</div>
+            <h2 class="section-title">企业为什么必须布局 GEO</h2>
+            <p class="section-desc">不是"要不要做"，而是"现在不做，未来就晚了"</p>
+        </div>
+
+        <div class="two-col reveal">
+            <div class="card">
+                <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;color:var(--accent-blue);">客户行为已改变</h3>
+                <ul style="padding-left:20px;color:var(--text-secondary);font-size:14px;line-height:2;">
+                    <li>客户不再搜索，而是直接问 AI</li>
+                    <li>AI 的推荐答案直接决定客户选择</li>
+                    <li>被 AI 推荐 = 获得信任背书</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;color:var(--accent-purple);">竞争窗口正在关闭</h3>
+                <ul style="padding-left:20px;color:var(--text-secondary);font-size:14px;line-height:1.8;">
+                    <li>AI 引用格局正在固化</li>
+                    <li>先被 AI 引用的品牌获得信任积累</li>
+                    <li>晚一步，就落后一步</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box reveal" style="margin-top:40px;">
+            <p> GEO 的终点不是被 AI 提及，而是让 AI 成为您的新获客渠道。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P4: 三个巨大风险 ══════════════════ -->
+<section id="ch04">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 03</div>
+            <h2 class="section-title">企业面临的三个巨大风险</h2>
+        </div>
+        <div class="risk-grid reveal">
+            <div class="risk-card">
+                <div class="risk-num">01</div>
+                <h3>品牌无法被 AI 发现</h3>
+                <p>客户询问行业问题时，AI 根本不知道您的存在。您的品牌对于 AI 来说是"隐形"的——即使产品质量再好、服务再优秀，AI 的推荐答案里永远没有您。</p>
+            </div>
+            <div class="risk-card">
+                <div class="risk-num">02</div>
+                <h3>竞争对手正在抢占 AI 认知</h3>
+                <p>当客户询问"推荐 XX 品牌"时，AI 推荐的是竞争对手，而不是您。今天的 AI 引用格局正在固化——先被 AI 引用的品牌会获得更高的可信度积累，形成马太效应。晚一步，就落后一步。</p>
+            </div>
+            <div class="risk-card">
+                <div class="risk-num">03</div>
+                <h3>传统 SEO 正在失去部分价值</h3>
+                <p>未来：排名第一，不一定等于被推荐。因为用户越来越直接向 AI 提问。Google 首页排名带来的是搜索流量，而 AI 推荐带来的是直接被信任的推荐流量——这是完全不同的转化质量和转化率。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P5: 什么是GEO ══════════════════ -->
+<section id="ch05" style="background:var(--bg-secondary);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 04</div>
+            <h2 class="section-title">什么是 GEO</h2>
+            <p class="section-desc">GEO = 帮助企业从"能够被搜索"升级为"能够被 AI 推荐"</p>
+        </div>
+
+        <div class="reveal">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width:25%;">对比维度</th>
+                        <th style="width:37%;color:var(--text-tertiary);">传统 SEO</th>
+                        <th style="width:38%;color:var(--accent-blue);">GEO 生成式引擎优化</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>目标平台</strong></td>
+                        <td>Google、百度等搜索引擎</td>
+                        <td><span class="highlight-blue">ChatGPT、Gemini、Perplexity 等 AI 平台</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>优化目标</strong></td>
+                        <td>出现在搜索结果页第一页</td>
+                        <td><span class="highlight-blue">出现在 AI 的推荐答案里</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>核心方法</strong></td>
+                        <td>关键词布局、外链建设</td>
+                        <td><span class="highlight-blue">可信知识库 + 结构化内容 + 多渠道信源矩阵</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>衡量结果</strong></td>
+                        <td>排名位置、流量点击</td>
+                        <td><span class="highlight-blue">品牌引用率、推荐排名、情感倾向</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>流量性质</strong></td>
+                        <td>搜索流量（用户主动查找）</td>
+                        <td><span class="highlight-blue">推荐流量（AI 主动推荐）</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box reveal" style="margin-top:40px;">
+            <p>两者都重要，但 GEO 正在成为企业必须布局的新战场。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P6: 为什么GEO最终会带来商业增长 ══════════════════ -->
+<section id="ch06">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 05</div>
+            <h2 class="section-title">为什么 GEO 最终会带来商业增长</h2>
+            <p class="section-desc">老板最关心的问题：做这个能赚多少钱？</p>
+        </div>
+
+        <!-- ROI 流程图 -->
+        <div class="reveal" style="max-width:800px;margin:0 auto;">
+            <div class="card" style="margin-bottom:20px;padding:28px 32px;">
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(41,151,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;">📈</div>
+                    <div>
+                        <h3 style="font-size:18px;font-weight:700;margin:0;">品牌曝光增长</h3>
+                        <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0 0;">更多客户在 AI 中看到您</p>
+                    </div>
+                </div>
+                <div style="font-size:24px;color:var(--accent-blue);text-align:center;margin:8px 0;">↓</div>
+            </div>
+            <div class="card" style="margin-bottom:20px;padding:28px 32px;">
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(168,85,247,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;">🤝</div>
+                    <div>
+                        <h3 style="font-size:18px;font-weight:700;margin:0;">品牌信任提升</h3>
+                        <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0 0;">AI 主动推荐您的品牌</p>
+                    </div>
+                </div>
+                <div style="font-size:24px;color:var(--accent-purple);text-align:center;margin:8px 0;">↓</div>
+            </div>
+            <div class="card" style="margin-bottom:20px;padding:28px 32px;">
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(48,209,88,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;">💼</div>
+                    <div>
+                        <h3 style="font-size:18px;font-weight:700;margin:0;">商业线索增长</h3>
+                        <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0 0;">更多潜在客户主动咨询</p>
+                    </div>
+                </div>
+                <div style="font-size:24px;color:var(--accent-green);text-align:center;margin:8px 0;">↓</div>
+            </div>
+            <div class="card" style="padding:28px 32px;border:1px solid var(--accent-blue);background:linear-gradient(135deg,rgba(41,151,255,0.08),rgba(168,85,247,0.08));">
+                <div style="display:flex;align-items:center;gap:16px;">
+                    <div style="width:48px;height:48px;border-radius:12px;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;font-size:20px;color:#000;">🌍</div>
+                    <div>
+                        <h3 style="font-size:20px;font-weight:800;margin:0;color:var(--accent-blue);">全球市场增长</h3>
+                        <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0 0;">持续获得新的客户机会</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-block reveal" style="margin-top:40px;">
+            <p><strong>GEO 的终点不是被 AI 提及，而是让 AI 成为您的新获客渠道。</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P7: 为什么选择SkyQuest ══════════════════ -->
+<section id="ch07" style="background:var(--bg-secondary);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 06</div>
+            <h2 class="section-title">为什么选择 SkyQuest</h2>
+            <p class="section-desc">客户买的是确定性——我们提供可验证、可量化、可持续的 GEO 结果</p>
+        </div>
+
+        <div class="features-grid reveal">
+            <div class="feature-card card">
+                <div style="font-size:32px;margin-bottom:16px;">🌐</div>
+                <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">跨语言能力</h3>
+                <p style="font-size:14px;color:var(--text-secondary);">中文 · 英文 · 东南亚语言 · 欧洲语言——覆盖全球主要市场，让您的品牌被全球 AI 识别和推荐。</p>
+            </div>
+            <div class="feature-card card">
+                <div style="font-size:32px;margin-bottom:16px;">🤖</div>
+                <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">全球 AI 平台覆盖</h3>
+                <p style="font-size:14px;color:var(--text-secondary);">ChatGPT · Gemini · Perplexity · Google AI Overview · 豆包 · 元宝 · 千问——主流 AI 平台全覆盖。</p>
+            </div>
+            <div class="feature-card card">
+                <div style="font-size:32px;margin-bottom:16px;">📚</div>
+                <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">可验证知识库方法论</h3>
+                <p style="font-size:14px;color:var(--text-secondary);">不是写文章，而是建立 AI 能理解、能验证、能持续引用的品牌知识体系——这是 AI 稳定引用的关键。</p>
+            </div>
+            <div class="feature-card card">
+                <div style="font-size:32px;margin-bottom:16px;">📊</div>
+                <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">数据驱动优化</h3>
+                <p style="font-size:14px;color:var(--text-secondary);">每月提供：品牌引用率 · 推荐率 · 竞争对手变化 · AI 情感倾向——全部可量化，让效果看得见。</p>
+            </div>
+        </div>
+
+        <div class="highlight-box reveal" style="margin-top:40px;">
+            <p> 因为客户买的是确定性——我们让 GEO 效果可验证、可量化、可持续。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P8: SkyQuest方法论 ══════════════════ -->
+<section id="ch08">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 07</div>
+            <h2 class="section-title">SkyQuest 方法论</h2>
+            <p class="section-desc">我们唯一做的一件事：帮助您的品牌出现在全球主流 AI 的推荐答案里</p>
+        </div>
+
+        <div class="card reveal" style="background:linear-gradient(135deg,rgba(41,151,255,0.07),rgba(168,85,247,0.07));margin-bottom:40px;">
+            <h3 style="margin-bottom:20px;"> 我们不是 SEO 公司，我们做的是 GEO</h3>
+            <div class="two-col" style="gap:24px;">
+                <div>
+                    <div style="font-size:14px;color:var(--text-tertiary);margin-bottom:8px;font-weight:700;">SEO 优化</div>
+                    <ul style="padding-left:20px;color:var(--text-secondary);font-size:14px;line-height:2;">
+                        <li>目标：出现在 Google / 百度 第一页</li>
+                        <li>方法：关键词、外链</li>
+                        <li>结果：流量点击</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="font-size:14px;color:var(--accent-blue);margin-bottom:8px;font-weight:700;">SkyQuest GEO 优化</div>
+                    <ul style="padding-left:20px;color:var(--text-secondary);font-size:14px;line-height:2;">
+                        <li>目标：出现在 ChatGPT / Gemini / 豆包 / 千问 答案里</li>
+                        <li>方法：可信知识库 + 结构化内容 + 信源矩阵</li>
+                        <li>结果：<span class="highlight-blue">AI 直接推荐品牌</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header reveal" style="margin-top:60px;">
+            <h3 style="font-size:28px;">核心方法论：可验证知识库</h3>
+            <p class="section-desc" style="margin-top:16px;">AI 引用一个品牌，有其底层逻辑：<strong style="color:var(--text-primary);">内容必须真实、结构化、可溯源</strong>。</p>
+        </div>
+
+        <div class="process-steps reveal" style="margin-top:40px;">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <h4>结构化知识库</h4>
+                <p>将分散的产品资料、品牌故事、行业背景沉淀为一套「结构化可验证知识库」</p>
+                <div class="step-arrow">→</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <h4>AI 内容生成</h4>
+                <p>围绕知识库自动化生成本地化、地道、带结构化数据的高质量内容</p>
+                <div class="step-arrow">→</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <h4>多渠道分发</h4>
+                <p>分发至多个渠道平台，形成 AI 稳定识别您品牌的「信源矩阵」</p>
+                <div class="step-arrow">→</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <h4>AI 持续引用</h4>
+                <p>AI 在各类问题中稳定引用您品牌，形成长期流量来源</p>
+            </div>
+        </div>
+
+        <div class="quote-block reveal" style="margin-top:40px;">
+            <p>这是 AI 稳定引用的关键——也是通用内容工厂做不到、而 SkyQuest 能做到的事。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P9: 覆盖AI平台 ══════════════════ -->
+<section id="ch08b" style="background:var(--bg-secondary);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 07b</div>
+            <h2 class="section-title">覆盖哪些 AI 平台</h2>
+            <p class="section-desc">全球主流 AI 平台全覆盖，持续跟进，持续覆盖</p>
+        </div>
+        <div class="three-col reveal">
+            <div style="text-align:center;">
+                <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-blue);margin-bottom:16px;">国际 AI 平台</h4>
+                <div class="platform-grid" style="grid-template-columns:1fr;">
+                    <div class="platform-card"><div class="platform-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/120px-ChatGPT_logo.svg.png" alt="ChatGPT"></div><h4>ChatGPT</h4><p>OpenAI 对话式 AI</p></div>
+                    <div class="platform-card"><div class="platform-icon"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini"></div><h4>Gemini</h4><p>Google 多模态 AI</p></div>
+                    <div class="platform-card"><div class="platform-icon"><img src="logos/perplexity.png" alt="Perplexity"></div><h4>Perplexity</h4><p>AI 问答与搜索</p></div>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-cyan);margin-bottom:16px;">中国 AI 平台</h4>
+                <div class="platform-grid" style="grid-template-columns:1fr;">
+                    <div class="platform-card"><div class="platform-icon"><img src="logos/doubao.svg" alt="豆包"></div><h4>豆包</h4><p>字节跳动 AI 助手</p></div>
+                    <div class="platform-card"><div class="platform-icon"><img src="logos/tongyi.svg" alt="通义千问"></div><h4>通义千问</h4><p>阿里云大模型</p></div>
+                    <div class="platform-card"><div class="platform-icon"><img src="logos/yuanbao.svg" alt="元宝"></div><h4>元宝</h4><p>腾讯混元大模型</p></div>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-purple);margin-bottom:16px;">覆盖目标市场</h4>
+                <div class="tag-grid" style="flex-direction:column;gap:10px;">
+                    <div class="region-block">
+                        <span class="region-name">东南亚</span>
+                        <span class="region-countries">印尼 · 新加坡 · 马来西亚 · 泰国 · 越南 · 菲律宾</span>
+                    </div>
+                    <div class="region-block">
+                        <span class="region-name">北美</span>
+                        <span class="region-countries">美国 · 加拿大</span>
+                    </div>
+                    <div class="region-block">
+                        <span class="region-name">欧洲</span>
+                        <span class="region-countries">英国 · 德国 · 法国 · 荷兰 · 西班牙</span>
+                    </div>
+                    <div class="region-block">
+                        <span class="region-name">澳新</span>
+                        <span class="region-countries">澳大利亚 · 新西兰</span>
+                    </div>
+                    <div class="region-block">
+                        <span class="region-name">中东</span>
+                        <span class="region-countries">阿联酋 · 沙特</span>
+                    </div>
+                    <div class="region-block">
+                        <span class="region-name">日韩</span>
+                        <span class="region-countries">日本 · 韩国</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P10: 典型合作路径（6个月）══════════════════ -->
+<section id="ch09">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 08</div>
+            <h2 class="section-title">典型合作路径</h2>
+            <p class="section-desc">6 个月，从"AI 不知道您"到"AI 主动推荐您"</p>
+        </div>
+
+        <div class="timeline-vertical reveal">
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 1 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>知识库与官网建设</h4>
+                    <p>AI 开始识别并验证您的品牌信息。建立结构化可验证知识库，优化官网 AI 可访问性。</p>
+                </div>
+            </div>
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 2 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>首批 GEO 内容发布</h4>
+                    <p>开始出现在部分 AI 的答案中。发布首批深度品牌内容，建立初始信源矩阵。</p>
+                </div>
+            </div>
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 3 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>AI 引用率显著提升</h4>
+                    <p>品牌在 AI 中的出现频率明显增加。多维 KPI 开始可测量、可跟踪。</p>
+                </div>
+            </div>
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 4 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>进入 AI 推荐名单</h4>
+                    <p>在核心问题中，AI 开始主动推荐您的品牌。推荐排名持续上升。</p>
+                </div>
+            </div>
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 5 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>稳定获得 AI 推荐流量</h4>
+                    <p>AI 推荐带来实际客户咨询。开始看到 GEO 对业务增长的实际贡献。</p>
+                </div>
+            </div>
+            <div class="timeline-item-vertical">
+                <div class="timeline-month">第 6 个月</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-card-vertical">
+                    <h4>稳定获取 AI 流量</h4>
+                    <p>持续获得全球用户发现与商业机会。AI 成为您稳定的新获客渠道之一。</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background:rgba(48,209,88,0.08);border:1px solid rgba(48,209,88,0.2);border-radius:12px;padding:16px 20px;margin-top:40px;text-align:center;">
+            <p style="font-size:14px;color:var(--accent-green);font-weight:600;">效果承诺：3 个月后品牌 AI 引用率（BCR）提升 ≥15 个百分点，否则免费续做 1 个月。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P11: 服务方案（定价）══════════════════ -->
+<section id="ch10" style="background:var(--bg-secondary);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 09</div>
+            <h2 class="section-title">服务方案</h2>
+            <p class="section-desc">月度 AI 可见性建设——让 AI 持续推荐您的品牌</p>
+        </div>
+
+        <!-- Pricing Tiers - Card Layout -->
+        <div class="reveal" style="margin-top:8px;">
+            <div style="text-align:center;margin-bottom:24px;">
+                <h3 style="margin:0 0 4px 0;font-size:16px;font-weight:600;letter-spacing:0.5px;">月度 AI 可见性建设</h3>
+                <p style="margin:0;font-size:11px;color:var(--text-tertiary);letter-spacing:1px;text-transform:uppercase;">Monthly AI Visibility Deliverables</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+                <!-- 基础版 -->
+                <div class="card" style="padding:28px 24px;border-radius:16px;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg,rgba(26,48,74,0.6),rgba(18,32,50,0.8));position:relative;overflow:hidden;">
+                    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-blue),var(--primary));"></div>
+                    <div style="font-size:11px;color:var(--accent-blue);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Starter</div>
+                    <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">基础版</div>
+                    <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:18px;line-height:1.35;">建立 AI 对品牌的基础认知与引用能力</div>
+                    <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                        <div style="display:flex;align-items:baseline;gap:6px;">
+                            <span style="font-size:32px;font-weight:800;color:var(--accent-blue);">¥10,000</span>
+                            <span style="font-size:14px;color:var(--text-secondary);">/ $1,380</span>
+                        </div>
+                        <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px;">每月 · 1-2 个目标市场</div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text-tertiary);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px;">交付物</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 品牌知识资产建设 <strong style="color:#fff;">4</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> GEO 场景页面建设 <strong style="color:#fff;">4</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 多渠道信源建设 <strong style="color:#fff;">2</strong></div>
+                    </div>
+                </div>
+                <!-- 进阶版 -->
+                <div class="card" style="padding:28px 24px;border-radius:16px;border:1px solid var(--accent-blue);background:linear-gradient(145deg,rgba(26,48,74,0.85),rgba(18,32,50,0.95));position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(56,152,255,0.12);">
+                    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-blue),#00d4ff);"></div>
+                    <div style="position:absolute;top:12px;right:16px;font-size:10px;background:var(--accent-blue);color:#000;padding:3px 10px;border-radius:20px;font-weight:700;letter-spacing:0.5px;">POPULAR</div>
+                    <div style="font-size:11px;color:#00d4ff;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Professional</div>
+                    <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">进阶版</div>
+                    <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:18px;line-height:1.35;">扩大多市场覆盖，提升 AI 引用率与推荐概率</div>
+                    <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.08);">
+                        <div style="display:flex;align-items:baseline;gap:6px;">
+                            <span style="font-size:32px;font-weight:800;color:var(--accent-blue);">¥20,000</span>
+                            <span style="font-size:14px;color:var(--text-secondary);">/ $2,780</span>
+                        </div>
+                        <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px;">每月 · 2-3 个目标市场</div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text-tertiary);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px;">交付物</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 品牌知识资产建设 <strong style="color:#fff;">6</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> GEO 场景页面建设 <strong style="color:#fff;">6</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 多渠道信源建设 <strong style="color:#fff;">3</strong></div>
+                    </div>
+                </div>
+                <!-- 旗舰版 -->
+                <div class="card" style="padding:28px 24px;border-radius:16px;border:1px solid rgba(173,152,114,0.3);background:linear-gradient(145deg,rgba(26,48,74,0.6),rgba(18,32,50,0.8));position:relative;overflow:hidden;">
+                    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#AD9872,#E8D9B5);"></div>
+                    <div style="font-size:11px;color:#AD9872;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Enterprise</div>
+                    <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">旗舰版</div>
+                    <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:18px;line-height:1.35;">构建全球 AI 可见性网络，并持续抢占行业推荐入口</div>
+                    <div style="margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                        <div style="display:flex;align-items:baseline;gap:6px;">
+                            <span style="font-size:32px;font-weight:800;color:var(--accent-blue);">¥30,000</span>
+                            <span style="font-size:14px;color:var(--text-secondary);">/ $4,170</span>
+                        </div>
+                        <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px;">每月 · 3-5 个目标市场</div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text-tertiary);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px;">交付物</div>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 品牌知识资产建设 <strong style="color:#fff;">8</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> GEO 场景页面建设 <strong style="color:#fff;">8</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-green);font-weight:bold;">×</span> 多渠道信源建设 <strong style="color:#fff;">4</strong></div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--accent-gold);font-weight:bold;">★</span> AI 引用监测与优化</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enterprise SaaS -->
+        <div class="card reveal" style="margin-top:24px;">
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+                <div class="step-num" style="width:36px;height:36px;font-size:13px;">④</div>
+                <div>
+                    <h3 style="margin:0;">Enterprise SaaS 平台</h3>
+                    <span style="font-size:13px;color:var(--text-tertiary);">¥9,999/月 | $999/月 · 适合希望自主操作的企业</span>
+                </div>
+            </div>
+            <div class="tag-grid">
+                <span class="tag">完整 GEO 管理后台</span>
+                <span class="tag">六大核心 KPI 实时仪表盘</span>
+                <span class="tag">多语言协同管理</span>
+                <span class="tag">多站点分发网络</span>
+                <span class="tag">专属客户成功经理</span>
+                <span class="tag">7×24 技术支持</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P12: 案例展示 ══════════════════ -->
+<section id="ch11">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Chapter 10</div>
+            <h2 class="section-title">案例展示</h2>
+            <p class="section-desc">即使是 Demonstration Case，也能看到 GEO 的实际效果</p>
+        </div>
+
+        <div class="card reveal" style="max-width:900px;margin:0 auto;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                <div style="font-size:24px;">📦</div>
+                <div>
+                    <h3 style="font-size:18px;font-weight:700;margin:0;">某国际物流企业（Demonstration Case）</h3>
+                    <p style="font-size:13px;color:var(--text-tertiary);margin:4px 0 0 0;">东南亚市场 · 多语言GEO优化</p>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;">
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.02);border-radius:12px;">
+                    <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">品牌引用率</div>
+                    <div style="font-size:24px;font-weight:800;color:var(--accent-blue);">0.8% → 32%</div>
+                    <div style="font-size:11px;color:var(--accent-green);margin-top:4px;">+31.2pp</div>
+                </div>
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.02);border-radius:12px;">
+                    <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">Top3 推荐率</div>
+                    <div style="font-size:24px;font-weight:800;color:var(--accent-purple);">5% → 28%</div>
+                    <div style="font-size:11px;color:var(--accent-green);margin-top:4px;">+23pp</div>
+                </div>
+                <div style="text-align:center;padding:16px;background:rgba(255,255,255,0.02);border-radius:12px;">
+                    <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px;">AI 情感倾向</div>
+                    <div style="font-size:24px;font-weight:800;color:var(--accent-cyan);">61% → 87%</div>
+                    <div style="font-size:11px;color:var(--accent-green);margin-top:4px;">+26pp</div>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                <p>优化前：ChatGPT 0 次推荐。优化后：品牌引用率 32%，Top3 推荐率 28%。AI 正在成为这家企业的新获客渠道。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════ P12: 免费AI可见性扫描 CTA ══════════════════ -->
+<section id="cta" class="cta-section">
+    <div class="cta-banner">
+        <h2 style="font-size:36px;font-weight:800;margin-bottom:16px;">免费 AI 可见性扫描</h2>
+        <p style="font-size:17px;color:var(--text-secondary);margin-bottom:32px;line-height:1.6;">48 小时内获得您的品牌 AI 可见性完整报告</p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:600px;margin:0 auto 32px;text-align:left;">
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="color:var(--accent-green);font-size:20px;">✓</span>
+                <span style="font-size:14px;">品牌 AI 引用率</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="color:var(--accent-green);font-size:20px;">✓</span>
+                <span style="font-size:14px;">竞争对手 AI 表现</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="color:var(--accent-green);font-size:20px;">✓</span>
+                <span style="font-size:14px;">哪些问题 AI 推荐了竞品</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="color:var(--accent-green);font-size:20px;">✓</span>
+                <span style="font-size:14px;">未来 90 天提升机会</span>
+            </div>
+        </div>
+
+        <div class="quote-block" style="margin-bottom:32px;text-align:left;">
+            <p>如果今天客户问 AI："推荐一家【您的行业】公司。"<br>您的品牌会出现吗？<br><br>如果不会，那么越来越多的客户，也不会看到您。</p>
+        </div>
+
+        <a href="#" class="cta-primary" style="font-size:18px;padding:18px 48px;">申请免费 AI 可见性扫描 →</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 SkyQuest 天问智能 · 让 AI 成为您的新获客渠道</p>
+</footer>
+
+<!-- Reveal Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+    });
+</script>
+
+</body>
+</html>
